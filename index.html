@@ -6,10 +6,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
---bg:#FAF8F5;--fg:#1C1917;--mut:#57534E;--card:#fff;--line:#E8DCC8;--soft:#F3EDE2;--gold:#B08B48;--gold2:#C3A062;--hd:rgba(255,255,255,.92);--wine:#7A1C2E;
+--bg:#FAF8F5;--fg:#1C1917;--mut:#57534E;--card:#fff;--line:#E8DCC8;--soft:#F3EDE2;--gold:#B08B48;--gold2:#C3A062;--hd:rgba(255,255,255,.92);--wine:#7A1C2E;--pf:#B45309;--fd:#2F6B3A;
 --g1:#6f9a8d;--g2:#C3A062;--g3:#7A1C2E;--h1:#1C1917;--h2:#36260C;--on:#1C1917;--onfg:#F3E6C8}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C0A09;--fg:#FAF8F5;--mut:#a8a29e;--card:#171412;--line:#2b2622;--soft:#201c19;--gold:#C5A880;--gold2:#E5CE9F;--hd:rgba(12,10,9,.92);--g1:#6f9a8d;--g2:#D5BE93;--g3:#FF8FA3;--h1:#0C0A09;--h2:#2a2014;--on:#C5A880;--onfg:#1C1917}}
-:root[data-theme="dark"]{--bg:#0C0A09;--fg:#FAF8F5;--mut:#a8a29e;--card:#171412;--line:#2b2622;--soft:#201c19;--gold:#C5A880;--gold2:#E5CE9F;--hd:rgba(12,10,9,.92);--g1:#6f9a8d;--g2:#D5BE93;--g3:#FF8FA3;--h1:#0C0A09;--h2:#2a2014;--on:#C5A880;--onfg:#1C1917}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C0A09;--fg:#FAF8F5;--mut:#a8a29e;--card:#171412;--line:#2b2622;--soft:#201c19;--gold:#C5A880;--gold2:#E5CE9F;--hd:rgba(12,10,9,.92);--g1:#6f9a8d;--g2:#D5BE93;--g3:#FF8FA3;--pf:#F4A261;--fd:#86CE96;--h1:#0C0A09;--h2:#2a2014;--on:#C5A880;--onfg:#1C1917}}
+:root[data-theme="dark"]{--bg:#0C0A09;--fg:#FAF8F5;--mut:#a8a29e;--card:#171412;--line:#2b2622;--soft:#201c19;--gold:#C5A880;--gold2:#E5CE9F;--hd:rgba(12,10,9,.92);--g1:#6f9a8d;--g2:#D5BE93;--g3:#FF8FA3;--pf:#F4A261;--fd:#86CE96;--h1:#0C0A09;--h2:#2a2014;--on:#C5A880;--onfg:#1C1917}
 *{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,-apple-system,"PingFang SC","Noto Sans SC",sans-serif;font-variant-numeric:lining-nums;line-height:1.55;-webkit-font-smoothing:antialiased;transition:background .25s,color .25s}
 .serif{font-family:"Playfair Display",Georgia,"Songti SC","Noto Serif SC",serif}
@@ -43,6 +43,7 @@ input[type=text]:focus{border-color:var(--gold2)}
 .nu{border:1px solid var(--line);background:var(--soft);color:var(--fg);border-radius:9px;padding:8px 12px;font:600 13.5px Inter,"PingFang SC",sans-serif;min-width:52px}
 .nu small{font-weight:500;color:var(--mut);margin-left:4px;font-size:11px}
 .nu.on{background:var(--on);color:var(--onfg);border-color:var(--gold)}.nu.on small{color:var(--onfg);opacity:.75}
+.pre.on{background:var(--on);color:var(--onfg);border-color:var(--gold)}
 .pre{border:1px solid var(--gold2);background:transparent;color:var(--gold);border-radius:20px;padding:6px 12px;font:600 12px Inter,"PingFang SC",sans-serif}
 .clr{border:0;background:transparent;color:var(--mut);font:600 12px Inter,"PingFang SC",sans-serif;text-decoration:underline;padding:6px}
 .lv{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap}.lv:last-child{border-bottom:0}
@@ -75,6 +76,8 @@ input[type=text]:focus{border-color:var(--gold2)}
 .note{font-size:13px;margin:8px 0}
 .pill{display:inline-block;font-size:10.5px;font-weight:600;padding:2px 9px;border-radius:20px;background:var(--soft);border:1px solid var(--line);color:var(--mut);margin:2px 4px 2px 0}
 .pill.w{border-color:var(--g3);color:var(--g3)}
+.pill.p{border-color:var(--pf);color:var(--pf)}
+.pill.f{border-color:var(--fd);color:var(--fd)}
 .cp{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}
 .go{border:1px solid var(--gold);background:transparent;color:var(--gold);border-radius:10px;padding:10px 16px;font:600 12.5px Inter,"PingFang SC",sans-serif;letter-spacing:.3px}
 .go.fill{background:var(--wine);border-color:var(--wine);color:#fff}
@@ -82,6 +85,8 @@ input[type=text]:focus{border-color:var(--gold2)}
 .lc{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:14px;border-top:3px solid var(--gold2)}
 .lc h3{margin:0;font:600 16px "Playfair Display",Georgia,"Songti SC",serif}.lc .g{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);font-weight:600}
 .lc p{font-size:12.5px;margin:7px 0;color:var(--mut)}
+.lc{display:flex;flex-direction:column}
+.lc>.cp{margin-top:auto;padding-top:12px}
 .lc dl{margin:8px 0 0;font-size:12.5px}.lc dt{font-weight:600;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;color:var(--gold);margin-top:8px}.lc dd{margin:2px 0 0}
 .pw{border-left:3px solid var(--gold2);padding:2px 0 2px 12px;margin-bottom:14px}
 .pw h3{margin:0;font:600 15px "Playfair Display",Georgia,"Songti SC",serif}.pw .gn{font-size:12px;color:var(--mut);margin:2px 0 6px}
@@ -90,7 +95,7 @@ input[type=text]:focus{border-color:var(--gold2)}
 .empty{text-align:center;padding:26px 10px;color:var(--mut);font-size:13.5px}
 .tk{border-top:3px solid var(--gold)}.tk .lbl:first-child{margin-top:0}.tkp{font-size:14px;margin:4px 0 8px}
 .an{border-left:2px solid var(--gold2);padding:2px 0 2px 12px;margin:10px 0;font-size:13.5px}.an b{font-weight:600}.an span{color:var(--mut)}
-.stp{display:flex;gap:12px;margin:14px 0}.stp i{flex:none;width:26px;height:26px;border-radius:50%;background:var(--gold);color:#fff;font:600 13px/1 Inter,sans-serif;font-variant-numeric:lining-nums tabular-nums;display:flex;align-items:center;justify-content:center;font-style:normal;padding:0}
+.stp{display:flex;gap:12px;margin:14px 0}.stp i{flex:none;width:26px;height:26px;border-radius:50%;background:#B08B48;color:#fff;font:600 13px/1 Inter,sans-serif;font-variant-numeric:lining-nums tabular-nums;display:flex;align-items:center;justify-content:center;font-style:normal;padding:0}
 .stp b{font-weight:600;font-size:14px}.stp div{font-size:13px;color:var(--mut)}.stp div b{color:var(--fg)}
 .sx{font-weight:500;font-size:13px;text-align:left}.ban{border-left:3px solid var(--gold)}
 .cta{background:linear-gradient(140deg,var(--h1),var(--h2));border:0;color:#F3E6C8;text-align:center;padding:26px 18px}.cta h2{color:#FAF4E4;font-weight:500}.cta .sb{color:#d9ccb2}.cta .eyebrow{color:#E5CE9F}
@@ -107,6 +112,7 @@ input[type=text]:focus{border-color:var(--gold2)}
 .bkx{position:absolute;top:12px;right:16px;border:0;background:transparent;color:var(--mut);font-size:28px;line-height:1}
 .bst{font-size:12px;text-align:center;padding:9px 12px;border-radius:12px;margin-top:10px;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.4)}
 .ctaE{display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px;letter-spacing:3px}
+.ctaHd .pdot{margin-right:10px;vertical-align:middle;position:relative;top:-1px}
 .pdot{position:relative;display:inline-block;width:8px;height:8px;flex:none}
 .pdot i{position:absolute;inset:0;display:block;border-radius:50%;background:#10B981}
 .pdot .pulse-ring{opacity:.7;animation:pill-ping 1.5s cubic-bezier(0,0,.2,1) infinite}
@@ -129,7 +135,7 @@ const UI={
 eb:['Clinical Nutrition · Effect Illustrator','临床营养 · 效应图示'],ti:['Nutrient Deficiency Atlas','营养缺乏效应图谱'],
 tabs:[['Deficiency Lab','缺乏实验室'],['Nutrient Library','营养素图鉴'],['Pathway Atlas','通路图谱']],
 h:['Which nutrients might you be low in?','您可能缺少哪些营养素？'],hs:['Select one or several. The atlas illustrates how the shortfall ripples through pathways and the body.','可选一种或多种。图谱将展示营养不足如何影响代谢通路与身体各系统。'],
-ph:['Search · e.g. b6, magnesium, zinc','搜索 · 例如 b6、镁、锌'],starter:['Starter combinations','常见组合'],clear:['Clear all','全部清除'],
+ph:['Search · e.g. b6, magnesium, zinc','搜索 · 例如 b6、镁、锌'],starter:['Starter combinations','常见组合'],clear:['Clear all','全部清除'],pS:['sym','症状'],pM:['med','药'],cS:['symptom(s)','项症状'],cM:['medication(s)','种药物'],incl:['Also included','同时计入'],banEx:['Symptoms + medication combined','症状 + 用药 综合'],banHx:['We combined both into one overall list of nutrients','已把两者合并为一份整体营养素清单'],banSx:['Shown as nutrient · symptoms matched + medications depleting it. Adjust anything below.','显示为“营养素 · 匹配症状数 + 消耗它的药物数”，可在下方自行调整。'],
 sev:['How low?','偏低程度'],sevd:['Mild shows only the strongest effects. Very low reveals more effects and intensifies the rest.','“轻度”仅显示最主要的影响；“严重偏低”会显示更多影响并加强整体程度。'],
 lv:[['Mild','轻度'],['Low','偏低'],['Very low','严重']],
 meds:['Medication check','药物影响检查'],medsd:['Tap any medication you take to see which nutrients it commonly depletes.','点选您正在服用的药物，查看它常见会消耗哪些营养素。'],mayd:['May deplete','可能消耗'],addm:['Show effects of these nutrients','查看这些营养素的影响'],
@@ -152,7 +158,7 @@ Object.assign(UI,{
 bk:['Book a Call','预约通话'],
 syH:['What are you experiencing?','您有哪些症状？'],syS:['Tick everything that applies. We will match your symptoms to the nutrients most likely to be low, then take you to the results.','勾选所有符合的症状，我们会匹配最可能偏低的营养素，并带您查看结果。'],syGo:['Show my likely nutrients','查看可能偏低的营养素'],syNone:['No matching nutrients found.','未找到匹配的营养素。'],syPick:['Tick at least one symptom.','请至少勾选一项症状。'],
 banE:['From your symptoms','根据您的症状'],banH:['We pre-selected your likely nutrients','已为您预选可能偏低的营养素'],banS:['symptoms ticked. Shown as nutrient · symptoms matched. Adjust anything below.','项症状已勾选。显示为“营养素 · 匹配症状数”，可在下方自行调整。'],edSym:['Edit symptoms','修改症状'],
-ctaE:['Next step','下一步'],ctaH:['Ready to find the root cause?','准备好找出根本原因了吗？'],ctaT:['Book a free 1-to-1 Discovery Call to review your timeline and decide which functional labs fit you.','预约免费一对一探索通话，梳理您的健康时间线，并确定适合您的功能医学检测。'],
+ctaE:['Take the next step','采取下一步'],ctaH:['Ready to find your root cause?','准备好找出根本原因了吗？'],ctaT:['Book a free virtual discovery call. No pressure, no obligations—just clarity on whether a functional approach is right for you.','预约免费线上探索通话。没有压力，没有义务——只是帮您厘清功能医学方法是否适合您。'],
 bkE:['FREE 1-TO-1 VIRTUAL CALL','免费一对一线上通话'],bkT:['Request Your Discovery Call','预约您的探索通话'],bkS:['Tell us a little about you and we will be in touch to arrange a time.','请简单介绍一下自己，我们会尽快联系您安排时间。'],
 q1:['1. What would you most like to explore?','1. 您最想了解哪方面？'],q2:['2. Which functional lab tests have you already completed?','2. 您已经完成了哪些功能医学检测？'],q2h:['Select all that apply','可多选'],q3:['3. Your Name and Email for the Discovery Call','3. 请留下姓名与邮箱'],nameP:['Your Full Name','您的全名'],emailP:['Your Email Address','您的邮箱地址'],
 inc:['Include my Atlas results so they can be reviewed before the call','附上我的图谱结果，方便通话前先行了解'],wa:['Request via WhatsApp','通过 WhatsApp 预约'],web:['Or Submit via Web Form','或通过网页表单提交'],needNE:['Please enter your Name and Email first.','请先填写姓名和邮箱。'],sending:['PROCESSING REQUEST...','正在提交…'],
@@ -259,7 +265,7 @@ SUL:['a sorting station for sulfur compounds','处理含硫物质的分拣站','
 const ELIN={B1:['Like a spark plug that lets your cells burn sugar for energy.','就像火花塞，让细胞把糖变成能量。'],B2:['A helper that switches on other vitamins so they can actually do their jobs.','像一位“开关员”，让其他维生素真正开始工作。'],B3:['The fuel-carrier that powers your cleanup crews and energy engines.','像运送燃料的小货车，为清洁队和能量引擎供电。'],B5:['The starter kit your body uses to build energy and handle stress.','身体用来制造能量、应对压力的“启动包”。'],B6:['The all-round helper that builds your feel-good brain chemicals and keeps cleanup running.','万能小帮手，合成让人心情好的脑内化学物质，并让清理工作持续运转。'],B7:['A tiny helper that lets your body burn fats and sugars — and the one yeast likes to steal.','让身体燃烧脂肪与糖分的小帮手——也是念珠菌爱“偷”的那一个。'],B9:['The building-block supplier for new cells, DNA and mood chemicals.','为新细胞、DNA和情绪化学物质供应“建材”的角色。'],B12:['The delivery driver that keeps your nerves, blood and energy supplied.','负责给神经、血液和能量系统“送货”的快递员。'],D3:['The sunshine vitamin that tunes your mood and immune defences.','“阳光维生素”，帮助调节情绪和免疫防线。'],K:['The traffic director that sends calcium to your bones and helps blood clot.','“交通指挥”，把钙送进骨骼，并帮助血液凝固。'],C:['A bodyguard that protects your cells and helps make your stress and drive chemicals.','保护细胞的“保镖”，并帮助合成应对压力与动力的化学物质。'],A:['The gatekeeper that keeps your gut lining and immune defences strong.','守护肠道黏膜与免疫防线的“守门人”。'],Mg:['The calm-down mineral that helps hundreds of body jobs run smoothly.','让数百项身体工作顺畅运行的“镇静矿物质”。'],Zn:['The activator that wakes up other nutrients and keeps immunity and skin healthy.','唤醒其他营养素的“启动器”，守护免疫与皮肤健康。'],Fe:['The oxygen-carrier that also fuels your focus and mood chemicals.','负责运送氧气的“搬运工”，也为专注力和情绪化学物质供能。'],Cu:['A small but mighty helper for clearing histamine and making stress chemicals.','个子小本事大的帮手，协助清除组胺并合成压力相关化学物质。'],Ca:['More than bone-building: it also helps clear histamine and mop up oxalate.','不只是造骨，还帮助清除组胺、结合草酸。'],Se:['The mineral that powers your body’s rust-protector and supports the thyroid.','为身体“防锈保护”供能的矿物质，同时支持甲状腺。'],Mo:['The sorter that processes sulfur compounds so foods and wine don’t bother you.','负责分拣含硫物质的“分拣员”，让食物和红酒不再困扰您。'],Mn:['A helper that sits inside your power stations and neutralises their sparks.','住在“发电站”里的小帮手，负责中和产生的“火花”（自由基）。'],I:['The raw material your thyroid uses to set your body’s energy thermostat.','甲状腺用来调节身体能量“恒温器”的原料。'],Chol:['A building material for cell walls and bile, and a handy source of methyl groups.','构建细胞膜和胆汁的材料，也是方便的甲基来源。'],Car:['The shuttle bus that carries fat into your power stations to be burned.','把脂肪运进“发电站”燃烧的接驳车。'],CoQ:['The spark that helps every cell turn food into usable energy.','帮助每个细胞把食物变成可用能量的“火花”。'],Gly:['A simple building block for your cleaning crew and for clearing everyday waste.','构成“清洁队”的简单原料，也帮助清除日常代谢废物。']};
 /* ================= ENGINE ================= */
 const $=id=>document.getElementById(id),byId=Object.fromEntries(N.map(n=>[n.id,n])),pwById=Object.fromEntries(PW.map(p=>[p.k,p]));
-let sel=new Set(),lvl={},medSel=new Set(),symSel=new Set(),banner=[],bsrc='sym',tab=0,QS='',QL='';
+let sel=new Set(),lvl={},medSel=new Set(),symSel=new Set(),banner=[],bsrc='sym',bcnt={s:0,m:0},tab=0,QS='',QL='';
 const MUL=[.6,1,1.4];
 const lv=id=>lvl[id]==null?1:lvl[id];
 const eff=(n,w)=>w*MUL[lv(n.id)];
@@ -295,21 +301,24 @@ return Object.keys(GR).map(g=>{const l=N.filter(n=>n.g==g&&(!q||(n.id+n.n[0]+n.n
 function lvHtml(){if(!sel.size)return'';return `<div class="lbl">${U('sev')}</div><div class="sb" style="margin-bottom:4px">${U('sevd')}</div>${[...sel].map(id=>{const n=byId[id];return `<div class="lv"><b>${x(n.n)}</b><div class="seg">${UI.lv.map((l,i)=>`<button class="${lv(id)==i?'on':''}" onclick="setLv('${id}',${i})">${x(l)}</button>`).join('')}</div></div>`}).join('')}`}
 function medHtml(){let h='<div class="chips">'+MEDS.map((m,i)=>`<button class="nu ${medSel.has(i)?'on':''}" onclick="tm_(${i})">${x([m[0],m[1]])}</button>`).join('')+'</div>';
 if(medSel.size){const dep={};[...medSel].forEach(i=>MEDS[i][2].forEach(id=>(dep[id]=dep[id]||[]).push(i)));const ids=Object.keys(dep).sort((a,b)=>dep[b].length-dep[a].length);
-h+=`<div class="note"><span class="pill w">${U('mayd')}</span> ${ids.map(id=>`<b>${short(byId[id])}</b>`).join(' · ')}</div><button class="go" onclick="addMeds()">${U('addm')}</button>`}return h}
+h+=`<div class="note"><span class="pill w">${U('mayd')}</span> ${ids.map(id=>`<b>${short(byId[id])}</b>`).join(' · ')}</div>`}
+h+=`<div class="sb" style="margin:14px 0 0">${symSel.size&&medSel.size?incl(symSel.size,'cS',1):''}</div><div class="cp nosp" style="margin-top:12px">${medSel.size?`<button class="go fill" onclick="addMeds()">${U('addm')}</button>`:''}<button class="clr" onclick="clearAll()">${U('clear')}</button></div>`;return h}
 function lab(){$('v').innerHTML=`<div id="ban">${banHtml()}</div><div class="card"><h2>${U('h')}</h2><div class="sb">${U('hs')}</div>
 <input type="text" id="qs" placeholder="${U('ph')}" value="${QS}" oninput="QS=this.value;$('chs').innerHTML=chipHtml()">
 <div id="chs">${chipHtml()}</div>
-<div class="lbl">${U('starter')}</div><div class="chips">${PRE.map((p,i)=>`<button class="pre" onclick="pre(${i})">${x([p[0],p[1]])}</button>`).join('')}<button class="clr" onclick="sel.clear();banner=[];upd()">${U('clear')}</button></div>
+<div class="lbl">${U('starter')}</div><div class="chips" id="pres">${preHtml()}</div>
 <div id="lvs">${lvHtml()}</div></div>
 <div id="res"></div>
-<div class="card cta nosp"><div class="eyebrow ctaE"><span class="pdot"><i class="pulse-ring"></i><i></i></span>${U('ctaE')}</div><h2 class="serif">${U('ctaH')}</h2><div class="sb">${U('ctaT')}</div><button class="go fill gold bkbtn" onclick="openBook()">${U('bk')}</button></div>
+<div class="card cta nosp"><h2 class="serif ctaHd"><span class="pdot"><i class="pulse-ring"></i><i></i></span>${U('ctaH')}</h2><div class="sb">${U('ctaT')}</div><button class="go fill gold bkbtn" onclick="openBook()">${U('bk')}</button></div>
 `;res()}
-function upd(){$('ban').innerHTML=banHtml();$('chs').innerHTML=chipHtml();$('lvs').innerHTML=lvHtml();res()}
+function preOn(i){const a=PRE[i][2];return sel.size==a.length&&a.every(id=>sel.has(id))}
+function preHtml(){return PRE.map((p,i)=>`<button class="pre ${preOn(i)?'on':''}" onclick="pre(${i})">${x([p[0],p[1]])}</button>`).join('')+`<button class="clr" onclick="clearAll()">${U('clear')}</button>`}
+function upd(){$('pres').innerHTML=preHtml();$('ban').innerHTML=banHtml();$('chs').innerHTML=chipHtml();$('lvs').innerHTML=lvHtml();res()}
 function tg(id){sel.has(id)?sel.delete(id):sel.add(id);upd()}
 function setLv(id,i){lvl[id]=i;$('lvs').innerHTML=lvHtml();res()}
 function pre(i){banner=[];sel=new Set(PRE[i][2]);upd();$('res').scrollIntoView({behavior:'smooth'})}
 function tm_(i){medSel.has(i)?medSel.delete(i):medSel.add(i);$('meds').innerHTML=medHtml()}
-function addMeds(){const dep={};[...medSel].forEach(i=>MEDS[i][2].forEach(id=>dep[id]=(dep[id]||0)+1));const ids=Object.keys(dep).sort((a,b)=>dep[b]-dep[a]);if(!ids.length)return;sel=new Set(ids);lvl={};banner=ids.map(id=>({id,m:dep[id]}));bsrc='med';tab=0;nav();R()}
+function addMeds(){if(!medSel.size)return;const L=combine();if(!L.length)return;applyCombined(L)}
 function res(){const el=$('res');if(!el)return;if(!sel.size){el.innerHTML=`<div class="card empty">${U('empty')}</div>`;return}
 const Dd=calc(),comp=Dd.sxS.filter(a=>a.c.length>1).length,act=Dd.pwS.filter(a=>a.v>=.2).length;
 const names=Dd.S.map(n=>short(n));
@@ -337,7 +346,7 @@ ${Dd.pwS.map(a=>{const b=band(a.v);return `<div class="row tap" onclick="pwSay('
 ${dom.length?dom.map(c=>`<div class="dm"><b>${x(pwById[c[0]].n)} → ${x(pwById[c[1]].n)}</b><br><span>${Z()?c[3]:c[2]}</span></div>`).join(''):`<div class="empty">${U('domN')}</div>`}</div>
 
 <div class="card"><h2>${U('formH')}</h2><div class="sb">${U('formS')}</div>
-${Dd.S.map(n=>`<div class="note"><b>${x(n.n)}</b>${x(n.best)!=D?`<br><span class="pill">${U('prefer')}</span>${x(n.best)}`:''}${x(n.avoid)!=D?`<br><span class="pill w">${U('avoid')}</span>${x(n.avoid)}`:''}${x(n.caut)!=D?`<br><span style="color:var(--mut)">${x(n.caut)}</span>`:''}${CF[n.id]?`<br><span class="pill">${U('cpan')}</span><span style="color:var(--mut)">${cfs(n,6)}</span>`:''}</div>`).join('')}
+${Dd.S.map(n=>`<div class="note"><b>${x(n.n)}</b>${x(n.best)!=D?`<br><span class="pill p">${U('prefer')}</span>${x(n.best)}`:''}${x(n.avoid)!=D?`<br><span class="pill w">${U('avoid')}</span>${x(n.avoid)}`:''}${x(n.caut)!=D?`<br><span style="color:var(--mut)">${x(n.caut)}</span>`:''}${CF[n.id]?`<br><span class="pill f">${U('cpan')}</span><span style="color:var(--mut)">${cfs(n,6)}</span>`:''}</div>`).join('')}
 ${ant.length?`<div class="lbl">${U('bal')}</div>${ant.map(a=>`<div class="note"><span class="pill w">${a[0]} ↔ ${a[1]}</span>${Z()?a[3]:a[2]}</div>`).join('')}`:''}</div>
 
 ${sugL.length?`<div class="card"><h2>${U('alsoH')}</h2><div class="sb">${U('alsoS')}</div><div class="chips">${sugL.map(s=>`<button class="nu" onclick="tg('${s[0]}')">+ ${chipLab(byId[s[0]])}<small>${U('with')} ${s[1].map(sid).join(', ')}</small></button>`).join('')}</div></div>`:''}`}
@@ -377,16 +386,29 @@ function atl(){$('v').innerHTML=`<div class="card"><h2>${x(UI.tabs[3])}</h2><div
 
 /* ================= SYMPTOM FINDER ================= */
 function symHtml(){return SYS.map(s=>{const ks=Object.keys(SX).filter(k=>SX[k][0]==s.k);return `<div class="lbl">${x(s.n)}</div><div class="chips">${ks.map(k=>`<button class="nu sx ${symSel.has(k)?'on':''}" onclick="tsy('${k}',this)">${sxT(k)}</button>`).join('')}</div>`}).join('')}
-function symBtn(){const b=$('symgo');if(b)b.textContent=U('syGo')+(symSel.size?' ('+symSel.size+')':'')}
+function incl(n,k,t){return n?`${U('incl')}: ${n} ${U(k)} (${x(UI.tabs[t])})`:''}
+function symBtn(){const e=$('syinc');if(e)e.textContent=incl(medSel.size,'cM',2);const b=$('symgo');if(b)b.textContent=U('syGo')+(symSel.size?' ('+symSel.size+')':'')}
 function sym(){$('v').innerHTML=`<div class="card"><h2>${U('syH')}</h2><div class="sb">${U('syS')}</div><div id="sylist">${symHtml()}</div>
-<div class="cp nosp" style="margin-top:16px"><button class="go fill" id="symgo" onclick="symGo()"></button><button class="clr" onclick="symSel.clear();$('sylist').innerHTML=symHtml();symBtn()">${U('clear')}</button></div></div>`;symBtn()}
+<div class="sb" id="syinc" style="margin:14px 0 0"></div><div class="cp nosp" style="margin-top:12px"><button class="go fill" id="symgo" onclick="symGo()"></button><button class="clr" onclick="clearAll()">${U('clear')}</button></div></div>`;symBtn()}
 function tsy(k,el){symSel.has(k)?symSel.delete(k):symSel.add(k);el.classList.toggle('on');symBtn()}
+function combine(){const ids=new Set();let pick=[];
+if(symSel.size){const r=N.map(n=>{let sc=0,m=0;symSel.forEach(k=>{if(n.s[k]){sc+=n.s[k];m++}});return{n,sc,m}}).filter(a=>a.sc>0).sort((a,b)=>b.sc-a.sc);
+if(r.length){const top=r[0].sc;pick=r.filter((a,i)=>i<3||a.sc>=top*.5).slice(0,8)}}
+pick.forEach(a=>ids.add(a.n.id));medSel.forEach(i=>MEDS[i][2].forEach(id=>ids.add(id)));
+const L=[...ids].map(id=>{const n=byId[id];let sc=0,sy=0;symSel.forEach(k=>{if(n.s&&n.s[k]){sc+=n.s[k];sy++}});let m=0;medSel.forEach(i=>{if(MEDS[i][2].includes(id))m++});return{id,s:sy,m,sc}});
+const mixed=symSel.size&&medSel.size;
+L.sort((a,b)=>mixed?((b.s+b.m)-(a.s+a.m)||b.sc-a.sc):symSel.size?b.sc-a.sc:b.m-a.m);return L}
+function applyCombined(L){sel=new Set(L.map(b=>b.id));lvl={};banner=L;bsrc=symSel.size&&medSel.size?'mix':symSel.size?'sym':'med';bcnt={s:symSel.size,m:medSel.size};tab=0;nav();R()}
 function symGo(){if(!symSel.size){say(U('syPick'));return}
-const r=N.map(n=>{let sc=0,m=0;symSel.forEach(k=>{if(n.s[k]){sc+=n.s[k];m++}});return{n,sc,m}}).filter(a=>a.sc>0).sort((a,b)=>b.sc-a.sc);
-if(!r.length){say(U('syNone'));return}
-const top=r[0].sc,pick=r.filter((a,i)=>i<3||a.sc>=top*.5).slice(0,8);
-sel=new Set(pick.map(a=>a.n.id));lvl={};banner=pick.map(a=>({id:a.n.id,m:a.m}));bsrc='sym';tab=0;nav();R()}
-function banHtml(){if(!banner.length)return'';const m=bsrc=='med',c=m?medSel.size:symSel.size;if(!c)return'';return `<div class="card ban"><div class="eyebrow">${U(m?'banEm':'banE')}</div><h2>${U(m?'banHm':'banH')}</h2><div class="sb">${c} ${U(m?'banSm':'banS')}</div><div class="chips" style="margin-bottom:10px">${banner.map(b=>`<span class="pill">${short(byId[b.id])} · ${b.m}</span>`).join('')}</div><button class="go" onclick="tab=${m?2:1};nav();R()">${U(m?'edMed':'edSym')}</button></div>`}
+const L=combine();if(!L.length){say(U('syNone'));return}applyCombined(L)}
+function pillT(b){if(bsrc!='mix')return bsrc=='med'?b.m:b.s;const p=[];if(b.s)p.push(b.s+' '+U('pS'));if(b.m)p.push(b.m+' '+U('pM'));return p.join(' + ')}
+function clearAll(){sel=new Set();lvl={};banner=[];symSel.clear();medSel.clear();
+if($('pres'))upd();if($('sylist')){$('sylist').innerHTML=symHtml();symBtn()}if($('meds'))$('meds').innerHTML=medHtml()}
+
+function banHtml(){if(!banner.length)return'';const mx=bsrc=='mix',m=bsrc=='med';
+const sub=mx?`${bcnt.s} ${U('cS')} + ${bcnt.m} ${U('cM')}. ${U('banSx')}`:`${m?bcnt.m:bcnt.s} ${U(m?'banSm':'banS')}`;
+const eb=(mx||!m?`<button class="go" onclick="tab=1;nav();R()">${U('edSym')}</button>`:'')+(mx||m?`<button class="go" onclick="tab=2;nav();R()">${U('edMed')}</button>`:'');
+return `<div class="card ban"><div class="eyebrow">${U(mx?'banEx':m?'banEm':'banE')}</div><h2>${U(mx?'banHx':m?'banHm':'banH')}</h2><div class="sb">${sub}</div><div class="chips" style="margin-bottom:10px">${banner.map(b=>`<span class="pill">${short(byId[b.id])} · ${pillT(b)}</span>`).join('')}</div><div class="chips">${eb}<button class="clr" onclick="clearAll()">${U('clear')}</button></div></div>`}
 
 /* ================= MEDICATION TAB ================= */
 function med(){$('v').innerHTML=`<div class="card"><h2>${x(UI.tabs[2])}</h2><div class="sb">${U('medsd')}</div><div id="meds">${medHtml()}</div></div>`}
