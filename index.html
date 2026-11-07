@@ -53,6 +53,11 @@ input[type=text]:focus{border-color:var(--gold2)}
 .hero .eyebrow{color:#E5CE9F}
 .hero h2{font-size:22px;font-weight:500;margin:4px 0 10px;color:#FAF4E4}
 .hero .chips{margin-bottom:16px}
+.hero .fine{font-size:11.5px;line-height:1.5;color:rgba(243,230,200,.8);margin:-6px 0 16px}.hero .fine a{color:#E5CE9F;text-decoration:underline;text-underline-offset:2px;cursor:pointer;font-weight:600}
+.lbl.flash{position:relative;z-index:0;width:fit-content}
+.lbl.flash::before{content:"";position:absolute;inset:-5px -10px;border-radius:999px;background:rgba(176,139,72,.30);z-index:-1;animation:lblfade 2.4s ease-out forwards}
+@keyframes lblfade{0%,45%{opacity:1}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.lbl.flash::before{animation:none;opacity:0}}
 .hero .tg{border:1px solid rgba(229,206,159,.55);color:#F3E6C8;border-radius:20px;padding:4px 11px;font-size:12px;font-weight:500}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .st{border-top:1px solid rgba(229,206,159,.45);padding-top:8px}
@@ -136,7 +141,7 @@ eb:['Clinical Nutrition · Effect Illustrator','临床营养 · 效应图示'],t
 tabs:[['Deficiency Lab','缺乏实验室'],['Nutrient Library','营养素图鉴'],['Pathway Atlas','通路图谱']],
 h:['Which nutrients might you be low in?','您可能缺少哪些营养素？'],hs:['Select one or several. The atlas illustrates how the shortfall ripples through pathways and the body.','可选一种或多种。图谱将展示营养不足如何影响代谢通路与身体各系统。'],
 ph:['Search · e.g. b6, magnesium, zinc','搜索 · 例如 b6、镁、锌'],starter:['Starter combinations','常见组合'],clear:['Clear all','全部清除'],pS:['sym','症状'],pM:['med','药'],cS:['symptom(s)','项症状'],cM:['medication(s)','种药物'],incl:['Also included','同时计入'],banEx:['Symptoms + medication combined','症状 + 用药 综合'],banHx:['We combined both into one overall list of nutrients','已把两者合并为一份整体营养素清单'],banSx:['Shown as nutrient · symptoms matched + medications depleting it. Adjust anything below.','显示为“营养素 · 匹配症状数 + 消耗它的药物数”，可在下方自行调整。'],
-sev:['How low?','偏低程度'],sevd:['Mild shows only the strongest effects. Very low reveals more effects and intensifies the rest.','“轻度”仅显示最主要的影响；“严重偏低”会显示更多影响并加强整体程度。'],
+sev:['How low?','偏低程度'],fn1:['Every nutrient is shown as “Low” by default. If one is milder or more severe,','每种营养素默认按“偏低”显示。若某项更轻或更严重，'],fn2:['tap here to adjust.','请点此调整。'],sevd:['Mild shows only the strongest effects. Very low reveals more effects and intensifies the rest.','“轻度”仅显示最主要的影响；“严重偏低”会显示更多影响并加强整体程度。'],
 lv:[['Mild','轻度'],['Low','偏低'],['Very low','严重']],
 meds:['Medication check','药物影响检查'],medsd:['Tap any medication you take to see which nutrients it commonly depletes.','点选您正在服用的药物，查看它常见会消耗哪些营养素。'],mayd:['May deplete','可能消耗'],addm:['Show effects of these nutrients','查看这些营养素的影响'],
 empty:['Select a nutrient above to see its effect on the body.','请在上方选择营养素，查看对身体的影响。'],
@@ -316,7 +321,10 @@ function preHtml(){return PRE.map((p,i)=>`<button class="pre ${preOn(i)?'on':''}
 function upd(){$('pres').innerHTML=preHtml();$('ban').innerHTML=banHtml();$('chs').innerHTML=chipHtml();$('lvs').innerHTML=lvHtml();res()}
 function tg(id){sel.has(id)?sel.delete(id):sel.add(id);upd()}
 function setLv(id,i){lvl[id]=i;$('lvs').innerHTML=lvHtml();res()}
-function pre(i){banner=[];sel=new Set(PRE[i][2]);upd();$('res').scrollIntoView({behavior:'smooth'})}
+function scrollToEl(t){requestAnimationFrame(()=>requestAnimationFrame(()=>{const h=document.querySelector('header'),off=(h?h.getBoundingClientRect().bottom:0)+12;window.scrollTo({top:Math.max(0,t.getBoundingClientRect().top+window.scrollY-off),behavior:'smooth'})}))}
+function goSummary(){scrollToEl(document.querySelector('#res .hero')||$('res'))}
+function goLv(){const t=$('lvs'),l=t&&t.querySelector('.lbl');if(!l)return;scrollToEl(l);l.classList.remove('flash');void l.offsetWidth;l.classList.add('flash')}
+function pre(i){banner=[];sel=new Set(PRE[i][2]);upd();goSummary()}
 function tm_(i){medSel.has(i)?medSel.delete(i):medSel.add(i);$('meds').innerHTML=medHtml()}
 function addMeds(){if(!medSel.size)return;const L=combine();if(!L.length)return;applyCombined(L)}
 function res(){const el=$('res');if(!el)return;if(!sel.size){el.innerHTML=`<div class="card empty">${U('empty')}</div>`;return}
@@ -329,6 +337,7 @@ const dom=DOM.filter(c=>{const a=Dd.pwS.find(y=>y.p.k==c[0]),b=Dd.pwS.find(y=>y.
 el.innerHTML=`
 <div class="card hero"><div class="eyebrow">${U('sum')}</div><h2 class="serif">${names.length>3?names.slice(0,3).join(' · ')+` · +${names.length-3}`:names.join(' · ')}</h2>
 <div class="chips">${Dd.S.map(n=>`<span class="tg">${short(n)} · ${x(UI.lv[lv(n.id)])}</span>`).join('')}</div>
+<div class="fine">${U('fn1')} <a href="#lvs" onclick="goLv();return false">${U('fn2')}</a></div>
 <div class="stats"><div class="st"><b>${sel.size}</b><span>${U('stN')}</span></div><div class="st"><b>${act}</b><span>${U('stP')}</span></div><div class="st"><b>${Dd.sysS.length}</b><span>${U('stS')}</span></div><div class="st"><b>${comp}</b><span>${U('stC')}</span></div></div></div>
 
 ${tkHtml(Dd)}
